@@ -30,7 +30,6 @@ Arguments are:
 	-f format
 		base date format by Go (default: %s)
 		When don't use with -b option, a value is %s
-
 `
 )
 
@@ -65,7 +64,7 @@ func main() {
 	}
 	s := d.AddDate(years, months, days).Format(format)
 	if len(s) != len(format) {
-		fmt.Fprintln(os.Stderr, "%s exceeds a format digit\n", s)
+		fmt.Fprintf(os.Stderr, "%s exceeds a format digit\n", s)
 		os.Exit(1)
 	}
 	fmt.Println(s)
